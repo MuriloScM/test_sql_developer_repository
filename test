@@ -1,21 +1,26 @@
-This is a data base version test 
+function fnc_deferido (i_cod_protocolo in varchar2) return varchar2
 
+  as
 
+     v_tb_anu  tb_wrkd_processo_anula_ato%rowtype;
 
+    begin
+     
+     select *
+       into v_tb_anu
+       from tb_wrkd_processo_anula_ato anu
+      where anu.cod_protocolo = i_cod_protocolo;
+      
+     if v_tb_anu.flg_deferido = 'S' then
+        return 'S';
+        
+        elsif v_tb_anu.flg_deferido = 'N' then
+              return 'N';
+     end if;
+    
+     
+    exception
+    when no_data_found then
+    return 'S';
 
-New commit
-
-
-Commit 2
-.
-.
-.
-.
-.
-.
-.
-Finish Commit
-
-
-
-Finish Commit!
+  end fnc_deferido;
