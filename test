@@ -26,4 +26,4 @@ function fnc_deferido (i_cod_protocolo in varchar2) return varchar2
   end fnc_deferido;
   
   
-  --Hello word
+  --Hello World
